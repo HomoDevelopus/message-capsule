@@ -1,0 +1,451 @@
+.create-capsule-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e8f4f8 0%, #d4eef5 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* 히어로 카드 */
+.hero-card {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(135deg, #a8e6cf 0%, #88d8b0 100%);
+  border-radius: 24px;
+  padding: 32px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 8px 32px rgba(136, 216, 176, 0.3);
+}
+
+/* 반짝이 장식들 */
+.deco {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* 별 장식 1 - 왼쪽 위 */
+.deco-star1 {
+  top: 15px;
+  left: 15px;
+  font-size: 22px;
+  color: #7dd3c0;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* 별 장식 2 - 오른쪽 위 */
+.deco-star2 {
+  top: 25px;
+  right: 20px;
+  font-size: 18px;
+  animation: twinkle 2.5s ease-in-out infinite 0.3s;
+}
+
+/* 별 장식 3 - 왼쪽 중간 */
+.deco-star3 {
+  top: 80px;
+  left: 10px;
+  font-size: 16px;
+  animation: twinkle 1.8s ease-in-out infinite 0.6s;
+}
+
+/* 하트 장식 1 - 오른쪽 중간 */
+.deco-heart1 {
+  top: 70px;
+  right: 15px;
+  font-size: 20px;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* 하트 장식 2 - 왼쪽 아래 */
+.deco-heart2 {
+  bottom: 80px;
+  left: 20px;
+  font-size: 16px;
+  animation: heartbeat 1.8s ease-in-out infinite 0.4s;
+}
+
+/* 사탕 장식 - 왼쪽 위쪽 */
+.deco-candy {
+  top: 50px;
+  left: 35px;
+  font-size: 18px;
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+/* 새 장식 1 - 오른쪽 아래 */
+.deco-bird1 {
+  bottom: 90px;
+  right: 25px;
+  font-size: 18px;
+  animation: fly 4s ease-in-out infinite;
+}
+
+/* 새 장식 2 - 왼쪽 아래 */
+.deco-bird2 {
+  bottom: 60px;
+  left: 15px;
+  font-size: 16px;
+  animation: fly 3.5s ease-in-out infinite 0.5s;
+}
+
+/* 애니메이션들 */
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.3) rotate(15deg); 
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  25% { 
+    transform: scale(1.2); 
+  }
+  50% { 
+    transform: scale(1); 
+  }
+  75% { 
+    transform: scale(1.1); 
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { 
+    transform: rotate(-5deg); 
+  }
+  50% { 
+    transform: rotate(5deg); 
+  }
+}
+
+@keyframes fly {
+  0%, 100% { 
+    transform: translate(0, 0) rotate(0deg); 
+  }
+  25% { 
+    transform: translate(3px, -5px) rotate(-5deg); 
+  }
+  50% { 
+    transform: translate(6px, 0) rotate(0deg); 
+  }
+  75% { 
+    transform: translate(3px, 5px) rotate(5deg); 
+  }
+}
+
+/* 캐릭터 영역 */
+.character-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 5;
+}
+
+.character-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* 곰 캐릭터 이미지 */
+.bear-character {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* 말풍선 */
+.speech-bubble {
+  position: absolute;
+  top: -5px;
+  right: -50px;
+  background: #ffffff;
+  padding: 8px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  color: #333333;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: bubble-float 2s ease-in-out infinite;
+  white-space: nowrap;
+  z-index: 20;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #ffffff;
+}
+
+@keyframes bubble-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+}
+
+.hero-title {
+  font-size: 26px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* 폼 카드 */
+.create-capsule-content {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 폼 */
+.capsule-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 15px;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 2px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #e8f4f8;
+  border-radius: 14px;
+  font-size: 16px;
+  font-family: 'Jua', sans-serif;
+  color: #333333;
+  background: #f8fbfc;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #88d8b0;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(136, 216, 176, 0.2);
+}
+
+.form-input::placeholder {
+  color: #aabbbb;
+}
+
+/* 날짜/시간 입력 */
+.datetime-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.datetime-icon {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
+  z-index: 1;
+}
+
+.datetime-input {
+  padding-left: 48px;
+}
+
+/* 옵션 섹션 */
+.options-section {
+  border-top: 1px solid #e8f4f8;
+  padding-top: 16px;
+}
+
+.options-toggle {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-family: 'Jua', sans-serif;
+  color: #88d8b0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.options-toggle:hover {
+  color: #5cb88f;
+}
+
+.options-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 14px;
+  transition: all 0.2s ease;
+  background: #f8fbfc;
+}
+
+.checkbox-option:hover {
+  background: #e8f4f8;
+  transform: translateX(4px);
+}
+
+.checkbox-option input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #88d8b0;
+}
+
+.checkbox-label {
+  font-size: 16px;
+  color: #333333;
+  flex: 1;
+}
+
+.checkbox-option input[type="checkbox"]:checked + .checkbox-label {
+  color: #333333;
+}
+
+/* 제출 버튼 */
+.submit-button {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #a8e6cf 0%, #88d8b0 100%);
+  border: none;
+  border-radius: 14px;
+  font-size: 18px;
+  font-family: 'Jua', sans-serif;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+  box-shadow: 0 4px 12px rgba(136, 216, 176, 0.3);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(136, 216, 176, 0.4);
+}
+
+.submit-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 푸터 */
+.footer-info {
+  width: 100%;
+  max-width: 420px;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  font-size: 14px;
+  color: #5cb88f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.footer-badge span {
+  font-size: 18px;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 480px) {
+  .create-capsule-container {
+    padding: 16px;
+    padding-top: 24px;
+  }
+
+  .hero-card {
+    padding: 28px 20px;
+  }
+
+  .bear-character {
+    width: 140px;
+    height: 140px;
+  }
+
+  .speech-bubble {
+    right: -35px;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .create-capsule-content {
+    padding: 24px 18px;
+  }
+
+  .deco {
+    font-size: 14px !important;
+  }
+
+  .deco-star1 { font-size: 18px !important; }
+  .deco-heart1 { font-size: 16px !important; }
+}

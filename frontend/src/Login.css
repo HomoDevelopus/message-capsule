@@ -1,0 +1,230 @@
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e8f4f8 0%, #d4eef5 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 반짝이 장식들 */
+.login-deco {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.login-deco.deco-star1 {
+  top: 10%;
+  left: 10%;
+  font-size: 24px;
+  color: #7dd3c0;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.login-deco.deco-star2 {
+  top: 15%;
+  right: 15%;
+  font-size: 20px;
+  animation: twinkle 2.5s ease-in-out infinite 0.3s;
+}
+
+.login-deco.deco-star3 {
+  bottom: 20%;
+  left: 8%;
+  font-size: 18px;
+  animation: twinkle 1.8s ease-in-out infinite 0.6s;
+}
+
+.login-deco.deco-heart1 {
+  top: 25%;
+  right: 10%;
+  font-size: 22px;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.login-deco.deco-heart2 {
+  bottom: 15%;
+  right: 12%;
+  font-size: 18px;
+  animation: heartbeat 1.8s ease-in-out infinite 0.4s;
+}
+
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: scale(1) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.3) rotate(15deg); 
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.1); }
+}
+
+/* 메인 카드 */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 40px 28px;
+  box-shadow: 0 8px 32px rgba(136, 216, 176, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* 캐릭터 */
+.login-character-wrapper {
+  margin-bottom: 20px;
+}
+
+.login-bear {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 타이틀 */
+.login-title {
+  font-size: 28px;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  font-size: 16px;
+  color: #888888;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* 카카오 로그인 버튼 */
+.kakao-login-btn {
+  width: 100%;
+  padding: 16px 20px;
+  background: #FEE500;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-family: 'Jua', sans-serif;
+  font-weight: 400;
+  color: #191919;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(254, 229, 0, 0.3);
+}
+
+.kakao-login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254, 229, 0, 0.4);
+}
+
+.kakao-login-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.kakao-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* 서비스 설명 */
+.login-features {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #f8fbfc;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.feature-item:hover {
+  background: #e8f4f8;
+  transform: translateX(4px);
+}
+
+.feature-icon {
+  font-size: 20px;
+}
+
+.feature-text {
+  font-size: 15px;
+  color: #555555;
+}
+
+/* 푸터 */
+.login-footer {
+  margin-top: 32px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  font-size: 14px;
+  color: #88d8b0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 16px;
+  }
+
+  .login-card {
+    padding: 32px 20px;
+    border-radius: 24px;
+  }
+
+  .login-bear {
+    width: 120px;
+    height: 120px;
+  }
+
+  .login-title {
+    font-size: 26px;
+  }
+
+  .login-subtitle {
+    font-size: 15px;
+  }
+
+  .kakao-login-btn {
+    font-size: 16px;
+    padding: 14px 18px;
+  }
+}
+

@@ -1,0 +1,436 @@
+.write-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e8f4f8 0%, #d4eef5 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+/* 반짝이 장식들 */
+.write-deco {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.write-deco.deco-star1 {
+  top: 8%;
+  left: 8%;
+  font-size: 22px;
+  color: #7dd3c0;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.write-deco.deco-star2 {
+  top: 12%;
+  right: 12%;
+  font-size: 18px;
+  animation: twinkle 2.5s ease-in-out infinite 0.3s;
+}
+
+.write-deco.deco-star3 {
+  bottom: 25%;
+  left: 5%;
+  font-size: 16px;
+  animation: twinkle 1.8s ease-in-out infinite 0.6s;
+}
+
+.write-deco.deco-heart1 {
+  top: 20%;
+  right: 8%;
+  font-size: 20px;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.write-deco.deco-heart2 {
+  bottom: 18%;
+  right: 10%;
+  font-size: 16px;
+  animation: heartbeat 1.8s ease-in-out infinite 0.4s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.3) rotate(15deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.1); }
+}
+
+/* 히어로 영역 */
+.write-hero {
+  margin-bottom: 12px;
+}
+
+.write-character-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.write-bear {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.write-speech-bubble {
+  position: absolute;
+  top: 0;
+  right: -60px;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 13px;
+  color: #333333;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: bubble-float 2s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+.write-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 18px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #ffffff;
+}
+
+@keyframes bubble-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-3px) rotate(2deg); }
+}
+
+/* 캡슐 정보 뱃지 */
+.capsule-info-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #a8e6cf 0%, #88d8b0 100%);
+  border-radius: 20px;
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(136, 216, 176, 0.3);
+}
+
+/* 작성 카드 */
+.write-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+/* 폼 */
+.write-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 15px;
+  font-weight: 400;
+  color: #333333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e8f4f8;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: 'Jua', sans-serif;
+  color: #333333;
+  background: #f8fbfc;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #88d8b0;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(136, 216, 176, 0.2);
+}
+
+.form-input:disabled {
+  background: #e8e8e8;
+  color: #999999;
+}
+
+.form-input::placeholder {
+  color: #aabbbb;
+}
+
+/* 닉네임 영역 */
+.nickname-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nickname-wrapper .form-input {
+  flex: 1;
+}
+
+.anonymous-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px;
+  background: #f8fbfc;
+  border: 2px solid #e8f4f8;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #555555;
+}
+
+.anonymous-checkbox:hover {
+  background: #e8f4f8;
+}
+
+.anonymous-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.anonymous-checkbox:has(input:checked) {
+  background: #88d8b0;
+  border-color: #88d8b0;
+  color: #ffffff;
+}
+
+/* 메시지 textarea */
+.form-textarea {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #e8f4f8;
+  border-radius: 14px;
+  font-size: 16px;
+  font-family: 'Jua', sans-serif;
+  color: #333333;
+  background: #f8fbfc;
+  resize: none;
+  transition: all 0.2s ease;
+  line-height: 1.6;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #88d8b0;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(136, 216, 176, 0.2);
+}
+
+.form-textarea::placeholder {
+  color: #aabbbb;
+}
+
+.char-count {
+  text-align: right;
+  font-size: 13px;
+  color: #aaaaaa;
+  margin-top: 4px;
+}
+
+/* 제출 버튼 */
+.submit-button {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #a8e6cf 0%, #88d8b0 100%);
+  border: none;
+  border-radius: 14px;
+  font-size: 18px;
+  font-family: 'Jua', sans-serif;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+  box-shadow: 0 4px 12px rgba(136, 216, 176, 0.3);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(136, 216, 176, 0.4);
+}
+
+.submit-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 푸터 */
+.write-footer {
+  margin-top: 24px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  font-size: 14px;
+  color: #88d8b0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* === 제출 완료 화면 === */
+.success-card {
+  text-align: center;
+  padding: 40px 28px;
+}
+
+.success-icon {
+  font-size: 60px;
+  margin-bottom: 16px;
+  animation: bounce-in 0.6s ease-out;
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.success-title {
+  font-size: 26px;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.success-subtitle {
+  font-size: 16px;
+  color: #888888;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.success-info {
+  background: #f8fbfc;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.success-capsule-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #a8e6cf 0%, #88d8b0 100%);
+  border-radius: 12px;
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.success-hint {
+  font-size: 14px;
+  color: #888888;
+  line-height: 1.5;
+}
+
+.success-bear-wrapper {
+  margin-top: 8px;
+}
+
+.success-bear {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 결과 보기 버튼 */
+.view-result-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  border: none;
+  border-radius: 14px;
+  font-size: 17px;
+  font-family: 'Jua', sans-serif;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(255, 154, 158, 0.3);
+}
+
+.view-result-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 154, 158, 0.4);
+}
+
+.view-result-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 480px) {
+  .write-container {
+    padding: 16px;
+    padding-top: 20px;
+  }
+
+  .write-bear {
+    width: 100px;
+    height: 100px;
+  }
+
+  .write-speech-bubble {
+    right: -50px;
+    font-size: 12px;
+  }
+
+  .write-card {
+    padding: 24px 18px;
+  }
+
+  .nickname-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .anonymous-checkbox {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .capsule-info-badge {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
+
